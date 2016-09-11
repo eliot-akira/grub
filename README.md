@@ -1,7 +1,7 @@
 
 # Grub
 
-An opinionated full-stack build tool: based on Gulp, Babel, Browserify and Sass
+A small full-stack build tool based on Gulp, Babel, Browserify and Sass
 
 ## Install
 
@@ -20,11 +20,12 @@ Folder name is searched for in the current working directory and in `./projects`
 
 ## Commands
 
-**`dev`** (default)
+#### `dev` (default)
 
 - Build `client` and `server` folders, if either exists
-- Start server with `nodemon`
-  - If no `server` then start static file server for `client`
+- Start server
+  - If `server` folder exists, then `nodemon`
+  - If only `client` folder exists, then `node-static`
 - Watch files for changes: compile and reload
   - Client files
     - HTML: Reload server and browser
@@ -33,7 +34,7 @@ Folder name is searched for in the current working directory and in `./projects`
   - Server files
     - Reload server and browser
 
-**`build`**
+#### `build`
 
 - Build `client` and `server` folders for production
 

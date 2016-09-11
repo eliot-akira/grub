@@ -3,9 +3,9 @@ import nodeStatic from 'node-static'
 
 module.exports = function({ src, port = 3000, dev = false, log, relative }) {
 
-  // https://github.com/cloudhead/node-static
+  // Reference: https://github.com/cloudhead/node-static
 
-  const staticServer = nodeStatic.Server(src, { cache: !dev })
+  const staticServer = new nodeStatic.Server(src, { cache: !dev })
 
   http.createServer((req, res) => {
     req.addListener('end', function () {

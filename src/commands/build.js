@@ -17,12 +17,18 @@ module.exports = function build(config) {
 
   log.info('Build')
 
-  return Promise.all([
+  let tasks = []
+
+  if (client) tasks.push(Promise.all([
     js({ ...client, ...common }),
     css({ ...client, ...common }),
     html({ ...client, ...common }),
-    copyAssets({ ...assets, ...common }),
-    //copy({ src: `${assets.src}/**/*`, dest: assets.dest }),
+    copyAssets({ ...assets, ...common })
+  ]))
+
+  if (server) tasks.push(Promise.all([
     buildServer({ ...server, ...common })
-  ])
+  ]))
+
+  return Promise.all(tasks)
 }

@@ -1,7 +1,7 @@
 {
   "name": "grub",
-  "version": "0.0.1",
-  "description": "Build system",
+  "version": "0.0.3",
+  "description": "A small full-stack build tool based on Gulp, Babel, Browserify and Sass",
   "main": "./build/index.js",
   "bin": {
     "grub": "bin/grub"
